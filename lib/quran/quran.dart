@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projects/quran/Sura_Details.dart';
 import 'package:projects/themes.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Quran extends StatelessWidget {
   List<String> names = [
@@ -132,8 +133,8 @@ class Quran extends StatelessWidget {
               border: Border.symmetric(
                   horizontal:
                       BorderSide(color: MyTheme.primary_color, width: 2))),
-          child:
-              Text("اسم السوره", style: Theme.of(context).textTheme.headline5)),
+          child: Text(AppLocalizations.of(context)!.sura_name,
+              style: Theme.of(context).textTheme.headline5)),
       Expanded(
         child: ListView.builder(
           itemBuilder: (context, index) {
