@@ -29,9 +29,13 @@ class _HadethState extends State<Hadeth> {
                           title: All[index].title,
                           content: All[index].content));
                 },
-                child: Text(
-                  All[index].title,
-                  style: TextStyle(color: Colors.black),
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.all(1),
+                  child: Text(
+                    All[index].title,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
                 ),
               );
             },

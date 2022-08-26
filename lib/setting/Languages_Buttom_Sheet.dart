@@ -59,6 +59,7 @@ class _Language_SheetState extends State<Language_Sheet> {
       children: [
         Text(text,
             style: TextStyle(
+              color: Colors.black,
               fontSize: 18,
             ))
       ],

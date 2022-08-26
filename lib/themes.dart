@@ -4,6 +4,11 @@ class MyTheme {
   static Color primary_color = Color(0xFFB7935F);
   static Color w = Colors.white;
   static Color dark = Colors.black45;
+  static Color black = Color(0xFF242424);
+  static Color white = Colors.white;
+  static Color yellow = Colors.amberAccent;
+
+  //static Color dark = Color(0xFF141A2E);
   static ThemeData LightTheme = ThemeData(
       primaryColor: primary_color,
       scaffoldBackgroundColor: Colors.transparent,
@@ -18,20 +23,19 @@ class MyTheme {
         unselectedIconTheme: IconThemeData(color: Colors.white),
       ),
       textTheme: TextTheme(
-        titleMedium: TextStyle(color: Colors.white, fontSize: 24),
+        titleSmall: TextStyle(color: Colors.white),
+        headlineSmall: TextStyle(color: Colors.black),
         headlineLarge: TextStyle(color: Colors.black, fontSize: 24),
         // titleMedium: TextStyle(),
-        // headline5: TextStyle(color: Colors.black),
+
         // headline1: TextStyle(),
-        headline3: TextStyle(
-          color: dark,
-        ),
+        //headline3: TextStyle(
+        //color: dark,
+        //  ),
         //   color: Colors.black,
         //   fontWeight: FontWeight.bold,
         // ),
-        bodyMedium: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
+        bodyMedium: TextStyle(color: Colors.black),
         bodyLarge: TextStyle(
           fontWeight: FontWeight.bold,
         ),
@@ -51,19 +55,12 @@ class MyTheme {
       ),
       textTheme: TextTheme(
         headlineLarge: TextStyle(color: Colors.white, fontSize: 24),
-        // titleMedium: TextStyle(),
-        // headline5: TextStyle(color: Colors.black),
-        // headline1: TextStyle(),
-        headline3: TextStyle(
-          color: w,
-        ),
-        titleMedium: TextStyle(color: Colors.white, fontSize: 24),
+        headlineSmall: TextStyle(color: Colors.white),
+
         //   color: Colors.black,
         //   fontWeight: FontWeight.bold,
         // ),
-        bodyMedium: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
+        bodyMedium: TextStyle(color: Colors.white),
         bodyLarge: TextStyle(
           fontWeight: FontWeight.bold,
         ),

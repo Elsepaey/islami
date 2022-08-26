@@ -29,7 +29,8 @@ class _settingState extends State<setting> {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: MyTheme.primary_color, width: 1),
                     color: Colors.white),
-                child: Text("English", style: TextStyle(fontSize: 22))),
+                child: Text("English",
+                    style: TextStyle(color: Colors.black, fontSize: 22))),
           ),
           SizedBox(
             height: 10,
@@ -45,7 +46,8 @@ class _settingState extends State<setting> {
                     borderRadius: BorderRadius.circular(25),
                     border: Border.all(color: MyTheme.primary_color, width: 1),
                     color: Colors.white),
-                child: Text("Light", style: TextStyle(fontSize: 22))),
+                child: Text("Light",
+                    style: TextStyle(color: Colors.black, fontSize: 22))),
           )
         ],
       ),

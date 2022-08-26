@@ -63,6 +63,7 @@ class _Themes_SheetState extends State<Themes_Sheet> {
       children: [
         Text(text,
             style: TextStyle(
+              color: Colors.black,
               fontSize: 18,
             ))
       ],
