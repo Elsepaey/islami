@@ -10,6 +10,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -18,6 +20,7 @@ class _HomeState extends State<Home> {
   @override
   int selectedIndex = 0;
 
+  @override
   Widget build(BuildContext context) {
     var settingprovider = Provider.of<settingProvider>(context);
     return Container(
@@ -25,14 +28,14 @@ class _HomeState extends State<Home> {
             image: DecorationImage(
                 fit: BoxFit.fill,
                 image: settingprovider.isDarkMode()
-                    ? AssetImage('assets/images/dark_bg.png')
-                    : AssetImage('assets/images/default_bg.png'))),
+                    ? const AssetImage('assets/images/dark_bg.png')
+                    : const AssetImage('assets/images/default_bg.png'))),
         child: Scaffold(
           appBar: AppBar(
             title: Center(
                 child: Text(
               AppLocalizations.of(context)!.title,
-              style: Theme.of(context).textTheme.headlineLarge,
+              //style: Theme.of(context).textTheme.headlineLarge,
             )),
           ),
           backgroundColor: Colors.transparent,
@@ -52,7 +55,7 @@ class _HomeState extends State<Home> {
                       backgroundColor: Theme.of(context)
                           .bottomNavigationBarTheme
                           .backgroundColor,
-                      icon: ImageIcon(
+                      icon: const ImageIcon(
                         AssetImage(
                           'assets/images/icon_quran.png',
                         ),
@@ -62,7 +65,7 @@ class _HomeState extends State<Home> {
                       backgroundColor: Theme.of(context)
                           .bottomNavigationBarTheme
                           .backgroundColor,
-                      icon: ImageIcon(
+                      icon: const ImageIcon(
                         AssetImage(
                           'assets/images/icon_hadeth.png',
                         ),
@@ -72,17 +75,7 @@ class _HomeState extends State<Home> {
                       backgroundColor: Theme.of(context)
                           .bottomNavigationBarTheme
                           .backgroundColor,
-                      icon: ImageIcon(
-                        AssetImage(
-                          'assets/images/icon_radio.png',
-                        ),
-                      ),
-                      label: AppLocalizations.of(context)!.radio),
-                  BottomNavigationBarItem(
-                      backgroundColor: Theme.of(context)
-                          .bottomNavigationBarTheme
-                          .backgroundColor,
-                      icon: ImageIcon(
+                      icon: const ImageIcon(
                         AssetImage(
                           'assets/images/icon_sebha.png',
                         ),
@@ -92,7 +85,17 @@ class _HomeState extends State<Home> {
                       backgroundColor: Theme.of(context)
                           .bottomNavigationBarTheme
                           .backgroundColor,
-                      icon: Icon(Icons.settings),
+                      icon: const ImageIcon(
+                        AssetImage(
+                          'assets/images/icon_radio.png',
+                        ),
+                      ),
+                      label: AppLocalizations.of(context)!.radio),
+                  BottomNavigationBarItem(
+                      backgroundColor: Theme.of(context)
+                          .bottomNavigationBarTheme
+                          .backgroundColor,
+                      icon: const Icon(Icons.settings),
                       label: AppLocalizations.of(context)!.setting)
                 ]),
           ),
@@ -100,5 +103,11 @@ class _HomeState extends State<Home> {
         ));
   }
 
-  List<Widget> pages = [Quran(), Hadeth(), radio(), Sebha(), setting()];
+  List<Widget> pages = [
+    QuranPage(),
+    const Hadeth(),
+    const Sebha(),
+    const radio(),
+    const setting()
+  ];
 }

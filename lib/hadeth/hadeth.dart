@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import '../provider/Setting_Provider.dart';
 import 'hadethContent.dart';
 
 class Hadeth extends StatefulWidget {
+  const Hadeth({super.key});
+
   @override
   State<Hadeth> createState() => _HadethState();
 }
@@ -11,14 +15,16 @@ class _HadethState extends State<Hadeth> {
   @override
   List<Hadeath> All = [];
 
+  @override
   Widget build(BuildContext context) {
+    var settingprovider = Provider.of<settingProvider>(context);
     if (All.isEmpty) {
       readfiles();
     }
 
     return Column(
       children: [
-        Image(image: AssetImage("assets/images/hadeth_logo.png")),
+        const Image(image: AssetImage("assets/images/hadeth_logo.png")),
         Expanded(
           child: ListView.builder(
             itemBuilder: (context, index) {
@@ -31,10 +37,12 @@ class _HadethState extends State<Hadeth> {
                 },
                 child: Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.all(1),
+                  margin: const EdgeInsets.all(1),
                   child: Text(
-                    All[index].title,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    Localizations.localeOf(context).toString() == "en"
+                        ? "Hadeth Number${index + 1}"
+                        : All[index].title,
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ),
               );
@@ -49,17 +57,17 @@ class _HadethState extends State<Hadeth> {
   void readfiles() async {
     String data = await rootBundle.loadString("assets/files/ahadeth.txt");
     List<String> allContent = data.trim().split("#");
-    List<Hadeath> Hadeath_List = [];
+    List<Hadeath> hadeathList = [];
     for (int i = 0; i < allContent.length; i++) {
-      List<String> hadeath_content = allContent[i].split('\n');
-      String Title = hadeath_content[0];
-      hadeath_content.removeAt(0);
-      String content = hadeath_content.join('\n');
+      List<String> hadeathContent = allContent[i].split('\n');
+      String Title = hadeathContent[0];
+      hadeathContent.removeAt(0);
+      String content = hadeathContent.join('\n');
 
       Hadeath h = Hadeath(title: Title, content: content);
-      Hadeath_List.add(h);
+      hadeathList.add(h);
     }
-    All = Hadeath_List;
+    All = hadeathList;
     // for(int i=0;i<All.length; i++){
     //   print(All[i].content);
     // }

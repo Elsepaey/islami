@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:projects/hadeth/hadethContent.dart';
 import 'package:projects/provider/Setting_Provider.dart';
 import 'package:projects/quran/Sura_Details.dart';
@@ -14,10 +13,12 @@ void main() {
       create: (buildContext) {
         return settingProvider();
       },
-      child: MyApp()));
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
 
   @override
@@ -30,14 +31,14 @@ class MyApp extends StatelessWidget {
       // English, no country code
 
       routes: {
-        Details.Route_Name: (context) => Details(),
-        Hadeth_Page.Route_Name: (context) => Hadeth_Page(),
+        Details.Route_Name: (context) => const Details(),
+        Hadeth_Page.Route_Name: (context) => const Hadeth_Page(),
       },
       theme: MyTheme.LightTheme,
       darkTheme: MyTheme.DarkTheme,
       themeMode: SettingProvider.appTheme,
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: const Home(),
     );
   }
 }
