@@ -5,6 +5,11 @@ import 'package:projects/themes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class setting extends StatefulWidget {
+  const setting({super.key});
+
+  static String language = "English";
+  static String theme = "Light";
+
   @override
   State<setting> createState() => _settingState();
 }
@@ -13,52 +18,62 @@ class _settingState extends State<setting> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.symmetric(vertical: 80, horizontal: 10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(AppLocalizations.of(context)!.language,
-              style: Theme.of(context).textTheme.headline5),
-          InkWell(
-            onTap: () {
-              ShowLanguagesSheet();
-            },
-            child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: MyTheme.primary_color, width: 1),
-                    color: Colors.white),
-                child: Text("English",
-                    style: TextStyle(color: Colors.black, fontSize: 22))),
-          ),
-          SizedBox(
+              style: Theme.of(context).textTheme.headlineSmall),
+          const SizedBox(
             height: 10,
           ),
+          InkWell(
+            onTap: () {
+              showLanguagesSheet();
+            },
+            child: Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border:
+                        Border.all(color: MyTheme.primary_color, width: 1.5),
+                    color: Colors.white),
+                child: Text(setting.language,
+                    style: const TextStyle(color: Colors.black, fontSize: 22))),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           Text(AppLocalizations.of(context)!.theme,
-              style: Theme.of(context).textTheme.headline5),
+              style: Theme.of(context).textTheme.headlineSmall),
+          const SizedBox(
+            height: 10,
+          ),
           InkWell(
             onTap: () {
               ShowThemesSheet();
             },
             child: Container(
+                padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: MyTheme.primary_color, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                    border:
+                        Border.all(color: MyTheme.primary_color, width: 1.5),
                     color: Colors.white),
-                child: Text("Light",
-                    style: TextStyle(color: Colors.black, fontSize: 22))),
+                child: Text(setting.theme,
+                    style: const TextStyle(color: Colors.black, fontSize: 22))),
           )
         ],
       ),
     );
   }
 
-  void ShowLanguagesSheet() {
+  void showLanguagesSheet() {
     showModalBottomSheet(
         context: context,
         builder: (buildContext) {
-          return Language_Sheet();
+          return const Language_Sheet();
         });
   }
 
@@ -66,7 +81,7 @@ class _settingState extends State<setting> {
     showModalBottomSheet(
         context: context,
         builder: (buildContext) {
-          return Themes_Sheet();
+          return const Themes_Sheet();
         });
   }
 }
